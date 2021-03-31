@@ -33,11 +33,16 @@
         }
 
         .foot {
-            margin-top: 475px;
+            margin-top: 375px;
             padding: 20px;
             background: white;
             text-align: center;
             font-size: 10px;
+        }
+
+        #head {
+            margin-top: 10%;
+            padding: 10px;
         }
 
         .info {
@@ -119,7 +124,7 @@
             <div class="heart-div"></div>
         </div>
         <div class="center">
-            <table class="countdownContainer">
+            <table class="countdownContainer" id="a">
                 <tr class="info">
                     <td colspan="4" id="a">Il reste</td>
                 </tr>
@@ -139,8 +144,11 @@
                     <td colspan="4" id="b">pour se voir!</td>
                 </tr>
             </table>
+            <div class="foot" id="head">
+                <h2 id="head_text"></h2>
+            </div>
             <div class="foot">
-                <h2>J'ai "corujei" pour faire ça</h2>
+                <h2 id="foot_text">J'ai "corujei" pour faire ça</h2>
             </div>
         </div>
         <div class="right">
@@ -150,8 +158,8 @@
     <script>
         function countdown() {
             var now = new Date();
-            var eventDate = new Date(2021, 6, 16);
-
+            var eventDate = new Date("2021-07-16T13:20:00+01:00");
+            
             var currentTime = now.getTime();
             var eventTime = eventDate.getTime();
 
@@ -166,15 +174,6 @@
             m %= 60;
             s %= 60;
 
-            if (d <= 0) {
-                document.getElementById("a").textContent = "C'est";
-                document.getElementById("b").textContent = "aujourd'hui !";
-            }
-
-            if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
-                document.getElementById("b").textContent = "maintenant !";
-            }
-
             h = (h < 10 && h > 0) ? "0" + h : h;
             m = (m < 10 && m > 0) ? "0" + m : m;
             s = (s < 10 && s > 0) ? "0" + s : s;
@@ -183,6 +182,22 @@
             if (h >= 0) document.getElementById("hours").textContent = h;
             if (m >= 0) document.getElementById("minutes").textContent = m;
             if (s >= 0) document.getElementById("seconds").textContent = s;
+
+            if (d <= 30) {
+                document.getElementById("head_text").textContent = "C'est près !";
+                document.getElementById("foot_text").textContent = "";
+
+                if (d < 7) {
+                    document.getElementById("head_text").textContent = "Une semaine !";
+                }
+
+                if (d < 1) {
+                    document.getElementById("head_text").textContent = "C'est aujourd'hui !";
+
+                    if (d <= 0 && h <= 0 && m <= 0 && s <= 0) 
+                    document.getElementById("head_text").textContent = "C'est maintenant ! (j'espère)";
+                }
+            }
 
             setTimeout(countdown, 1000);
         }
