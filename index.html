@@ -181,16 +181,16 @@
             if (m >= 0) document.getElementById("minutes").textContent = m;
             if (s >= 0) document.getElementById("seconds").textContent = s;
 
-            if (d <= 30) {
+            if (d < 30) {
                 document.getElementById("head_text").textContent = "C'est près !";
                 document.getElementById("foot_text").textContent = "";
 
                 if (d < 7) {
-                    document.getElementById("head_text").textContent = "Une semaine !";
+                    document.getElementById("head_text").textContent = "Une semaine ! (je suis impatient)";
                 }
 
                 if (d < 1) {
-                    document.getElementById("head_text").textContent = "C'est aujourd'hui !";
+                    document.getElementById("head_text").textContent = "C'est aujourd'hui ! <3";
 
                     if (d <= 0 && h <= 0 && m <= 0 && s <= 0) 
                     document.getElementById("head_text").textContent = "C'est maintenant ! (j'espère)";
