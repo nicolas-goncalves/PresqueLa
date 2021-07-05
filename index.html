@@ -156,7 +156,7 @@
     <script>
         function countdown() {
             var now = new Date();
-            var eventDate = new Date("jul 11, 2021 22:55:00+01:00");
+            var eventDate = new Date("jul 11, 2021 23:00:00+01:00");
 
             var currentTime = now.getTime();
             var eventTime = eventDate.getTime();
@@ -187,9 +187,9 @@
 
                 if (d < 7) {
                     document.getElementById("head_text").textContent = "Une semaine ! (je suis impatient)";
-                }
-
-                if (d < 1) {
+                } else if (d < 3) {
+                    document.getElementById("head_text").textContent = "Dans trois jours j'ai tombé amoreux par toi, et maintenant il reste que trois jours !";
+                } else if (d < 1) {
                     document.getElementById("head_text").textContent = "C'est aujourd'hui ! <3";
 
                     if (d <= 0 && h <= 0 && m <= 0 && s <= 0) 
