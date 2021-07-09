@@ -187,9 +187,13 @@
 
                 if (d < 7) {
                     document.getElementById("head_text").textContent = "Une semaine ! (je suis impatient)";
-                } else if (d < 3) {
+                }
+                
+                if (d == 2) {
                     document.getElementById("head_text").textContent = "Dans trois jours j'ai tombé amoreux par toi, et maintenant il reste que trois jours !";
-                } else if (d < 1) {
+                }
+                
+                if (d < 1) {
                     document.getElementById("head_text").textContent = "C'est aujourd'hui ! <3";
 
                     if (d <= 0 && h <= 0 && m <= 0 && s <= 0) 
